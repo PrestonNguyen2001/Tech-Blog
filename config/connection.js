@@ -6,7 +6,7 @@ const sequelize = process.env.DB_URL
   : new Sequelize(
       process.env.DB_NAME,
       process.env.DB_USER,
-      process.env.DB_PASSWORD,
+      process.env.DB_PASSWORD || null,
       {
         host: "localhost",
         dialect: "postgres",
