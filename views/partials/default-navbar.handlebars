@@ -1,0 +1,48 @@
+<nav class="navigation" data-navigation>
+  <div class="navigation-header">
+    <button class="icon-btn" aria-label="Close menu" data-ripple data-nav-toggler>
+      <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+      <div class="state-layer"></div>
+    </button>
+    <a href="/" class="logo">MVC Tech Blog</a>
+  </div>
+  <ul class="drawer-list">
+    <li class="drawer-item">
+      <a href="/articles" class="drawer-link" data-drawer-link>
+        <span class="material-symbols-outlined leading-icon" aria-hidden="true">image</span>
+        <span class="label-large">Articles</span>
+        <div class="state-layer"></div>
+      </a>
+    </li>
+    <li class="drawer-item">
+      <a href="/blog" class="drawer-link" data-drawer-link>
+        <span class="material-symbols-outlined leading-icon" aria-hidden="true">videocam</span>
+        <span class="label-large">Blog Posts</span>
+        <div class="state-layer"></div>
+      </a>
+    </li>
+    <li class="drawer-item">
+      <a href="/comments" class="drawer-link" data-drawer-link>
+        <span class="material-symbols-outlined leading-icon" aria-hidden="true">auto_awesome_mosaic</span>
+        <span class="label-large">Comments</span>
+        <div class="state-layer"></div>
+      </a>
+    </li>
+    <li class="drawer-item">
+      <a href="/dashboard" class="drawer-link" data-drawer-link>
+        <span class="material-symbols-outlined leading-icon" aria-hidden="true">Dashboard</span>
+        <span class="label-large">Dashboard</span>
+        <div class="state-layer"></div>
+      </a>
+    </li>
+    {{#if logged_in}}
+    <li class="drawer-item">
+      <button class="drawer-link no-button" id="logout">
+        <span class="material-symbols-outlined leading-icon" aria-hidden="true">logout</span>
+        <span class="label-large">Logout</span>
+        <div class="state-layer"></div>
+      </button>
+    </li>
+    {{/if}}
+  </ul>
+</nav>

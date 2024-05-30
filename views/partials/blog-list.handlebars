@@ -1,0 +1,38 @@
+{{!-- partials/blog-list.handlebars --}}
+{{#if blogs.length}}
+  <div class="blogs">
+    <h3 class="page-title title-large">Current Blogs:</h3>
+    <div class="blog-header">
+      <div class="header-details">
+        <div class="col-header">Date Updated</div>
+        <div class="col-header">Post Image</div>
+        <div class="col-header">Post Title</div>
+        <div class="col-header">Delete</div>
+        <div class="col-header">Edit</div>
+      </div>
+    </div>
+    <div class="list-container">
+      {{#each blogs as |blog|}}
+      <div class="blog-row row mb-2 flex justify-between items-center border-b border-gray-200 py-2">
+        <div class="col-md-2 blog-date">
+          <p>{{format_date blog.date_created}}</p>
+        </div>
+        <div class="col-md-2 blog-image">
+          {{#if blog.image_url}}
+          <img src="{{blog.image_url}}" alt="{{blog.title}}" class="img-thumbnail" style="max-height: 50px;">
+          {{else}}
+          <p>No image</p>
+          {{/if}}
+        </div>
+        <div class="col-md-4 blog-title">
+          <h4><a href="/blog/{{blog.id}}" class="text-blue-500 hover:underline">{{blog.title}}</a></h4>
+          <p class="blog-content">{{blog.description}}</p>
+        </div>
+      
+      </div>
+      {{/each}}
+    </div>
+  </div>
+{{else}}
+  <p class="text-center">You have no posts yet!</p>
+{{/if}}

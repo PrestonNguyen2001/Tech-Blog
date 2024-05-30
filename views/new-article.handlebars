@@ -1,0 +1,32 @@
+<section class="section new-article">
+  <h2 class="text-center text-3xl my-7 font-semibold">Create a New Article:</h2>
+  <form id="new-article-form" method="POST" action="/api/articles">
+    <div class="input-box">
+      <div class="question">
+        <input type="text" id="article-title" name="title" placeholder="Title" autocomplete="off" required>
+      </div>
+      <div class="file-upload-group">
+        <div class="file-input-wrapper">
+          <input type="file" id="article-image" name="article-image" accept="image/*">
+          <div id="upload-progress-article" class="hidden">
+            <div class="w-16 h-16">
+              <div id="progress-bar-article"></div>
+              <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            </div>
+            <div id="upload-error-article" class="text-red-500"></div>
+          </div>
+          <button type="button" id="upload-button-article" class="btn btn-primary upload-btn">Upload Image</button>
+        </div>
+        <input type="hidden" id="article-image-url" name="image-url">
+      </div>
+      <div class="question">
+        <textarea id="article-content" name="description" autocomplete="off" placeholder="Content"></textarea>
+      </div>
+    </div>
+    <div class="btn-box btns">
+      <button type="submit" id="submit-button-article" class="submit-button">Submit</button>
+    </div>
+  </form>
+</section>
+
+<script type="module" src="/js/dashboard.js"></script>

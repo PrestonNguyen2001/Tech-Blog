@@ -1,0 +1,46 @@
+<main class="main">
+  <section class="articlePost">
+    <h1 class="text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl">{{title}}</h1>
+
+    {{#if image_url}}
+    <img src="{{image_url}}" alt="{{title}}" class="mt-10 p-3 max-h-[600px] w-full object-cover">
+    {{/if}}
+
+    <div class="row headerRow mt-5">
+      <div class="col-8">
+        <p class="articleCreate text-left text-gray-600">Created by {{user.username}} on {{format_date date_created}}</p>
+      </div>
+      <div class="col-4 text-right">
+        {{#if logged_in}}
+        <button class="btn btn-primary bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600" data-id="{{id}}">EDIT</button>
+        <button class="btn btn-danger bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600" data-id="{{id}}">DELETE</button>
+        {{/if}}
+      </div>
+    </div>
+
+    <p class="text-center articleDescTwo mt-5 text-lg leading-relaxed text-gray-800">{{description}}</p>
+  </section>
+
+  <h2 class="text-2xl text-center mt-10 font-serif">Comments</h2>
+  {{#if logged_in}}
+  <form class="new-comment-form formCont d-flex flex-wrap justify-content-center mt-5" data-articleid="{{id}}">
+    <div class="textAreaCont p-2 w-full max-w-2xl">
+      <textarea id="comment_description" name="comment-body" placeholder="Enter a comment here..." cols="30" rows="2" class="w-full p-3 border rounded"></textarea>
+    </div>
+    <div class="btnComment p-2">
+      <button class="button btn btn-success" type="submit">Add Comment</button>
+    </div>
+  </form>
+  {{/if}}
+
+  <div class="comments-section mt-10">
+    {{#each comments as |comment|}}
+    <div class="commentCont mb-5 p-4 border rounded shadow-sm">
+      <p class="text-center commentText text-lg">{{comment.comment_description}}</p>
+      <p class="text-center commentOwner text-sm text-gray-600"><span>~</span> Created by {{comment.user.username}} on {{format_date comment.date_created}} <span>~</span></p>
+    </div>
+    {{/each}}
+  </div>
+</main>
+
+<script type="module" src="/js/comments.js"></script>

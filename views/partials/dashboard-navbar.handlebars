@@ -1,0 +1,63 @@
+<!-- views/partials/dashboard-navbar.handlebars -->
+<nav class="navigation" data-navigation>
+  <div class="navigation-header">
+    <button class="icon-btn" aria-label="Close menu" data-ripple data-nav-toggler>
+      <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+      <div class="state-layer"></div>
+    </button>
+    <a href="/" class="logo">MVC Tech Blog</a>
+  </div>
+  <ul class="drawer-list">
+    <li class="drawer-item">
+      <a href="/dashboard" class="drawer-link" data-drawer-link>
+        <span class="material-symbols-outlined leading-icon" aria-hidden="true">dashboard</span>
+        <span class="label-large">Dashboard Home</span>
+        <div class="state-layer"></div>
+      </a>
+    </li>
+    <li class="drawer-item">
+      <a href="/dashboard/blogs" class="drawer-link" data-drawer-link>
+        <span class="material-symbols-outlined leading-icon" aria-hidden="true">article</span>
+        <span class="label-large">My Blogs</span>
+        <div class="state-layer"></div>
+      </a>
+    </li>
+    <li class="drawer-item">
+      <a href="/dashboard/articles" class="drawer-link" data-drawer-link>
+        <span class="material-symbols-outlined leading-icon" aria-hidden="true">article</span>
+        <span class="label-large">My Articles</span>
+        <div class="state-layer"></div>
+      </a>
+    </li>
+    <li class="drawer-item">
+      <a href="/dashboard/new-blog" class="drawer-link" data-drawer-link>
+        <span class="material-symbols-outlined leading-icon" aria-hidden="true">add</span>
+        <span class="label-large">Create Blog</span>
+        <div class="state-layer"></div>
+      </a>
+    </li>
+    <li class="drawer-item">
+      <a href="/dashboard/new-article" class="drawer-link" data-drawer-link>
+        <span class="material-symbols-outlined leading-icon" aria-hidden="true">add</span>
+        <span class="label-large">Create Article</span>
+        <div class="state-layer"></div>
+      </a>
+    </li>
+    <li class="drawer-item">
+      <a href="/" class="drawer-link" data-drawer-link>
+        <span class="material-symbols-outlined leading-icon" aria-hidden="true">home</span>
+        <span class="label-large">Back to Home</span>
+        <div class="state-layer"></div>
+      </a>
+    </li>
+    {{#if logged_in}}
+    <li class="drawer-item">
+      <button class="drawer-link no-button" id="logout">
+        <span class="material-symbols-outlined leading-icon" aria-hidden="true">logout</span>
+        <span class="label-large">Logout</span>
+        <div class="state-layer"></div>
+      </button>
+    </li>
+    {{/if}}
+  </ul>
+</nav>

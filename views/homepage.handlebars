@@ -1,0 +1,131 @@
+<section class="banner" aria-label="Banner">
+
+  <div class="banner-card primary">
+
+    <div class="card-content">
+
+      <h3 class="headline-medium card-title">
+        View our featured blog posts!
+      </h3>
+
+      <p class="body-large card-text">
+        Stay updated with the latest trends and insights in the tech world.
+      </p>
+
+      <a href="/blog" class="btn btn-primary" data-ripple>
+        <span class="label-large text">Explore Now</span>
+
+        <div class="state-layer"></div>
+      </a>
+
+    </div>
+
+    <div class="card-grid">
+
+      <div class="card-banner" style="grid-area: b1; background-image: url(../images/tech-blog-banner-1.jpg)">
+      </div>
+      <div class="card-banner" style="grid-area: b2; background-image: url(../images/tech-blog-banner-2.jpg)">
+      </div>
+
+      <div class="card-banner" style="grid-area: b3; background-image: url(../images/tech-blog-banner-3.jpg)">
+      </div>
+
+      <div class="card-banner" style="grid-area: b4; background-image: url(../images/tech-blog-banner-4.jpg)">
+      </div>
+
+      <div class="card-banner" style="grid-area: b5; background-image: url(../images/tech-blog-banner-5.jpg)">
+      </div>
+
+      <div class="card-banner" style="grid-area: b6; background-image: url(../images/tech-blog-banner-6.jpg)">
+      </div>
+
+    </div>
+
+      
+
+  </div>
+
+ 
+
+</section>
+
+<section class="section featured-blogs" aria-label="Featured Blogs">
+  <div class="container">
+    {{#if blogs.length}}
+      <h3 class="page-title title-large">Recent Blogs</h3>
+      <div class="media-grid">
+        {{#each blogs as |blog|}}
+        <div class="column">
+          <div class="card grid-item">
+            <figure>
+              <img src="{{blog.image_url}}" alt="{{blog.title}}" />
+            </figure>
+            <div class="card-body">
+              <h2>
+                <a class="blogTitle text-uppercase" href="/blog/{{blog.id}}">{{blog.title}}</a>
+              </h2>
+              <p>{{format_date blog.date_created}}</p>
+              <p class="blogCreate text-right">Created by
+                {{blog.user.username}}
+              </p>
+              <p>
+                {{blog.description}}
+              </p>
+              <a href="/blog/{{blog.id}}" class="read-more">
+                Read more
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    {{else}}
+      <p class="text-center">You have no posts yet!</p>
+    {{/if}}
+  </div>
+</section>
+
+<section class="section featured-articles" aria-label="Featured Articles">
+  <div class="container">
+    {{#if articles.length}}
+      <h3 class="page-title title-large">Recent Articles</h3>
+      <div class="media-grid">
+        {{#each articles as |article|}}
+        <div class="column">
+          <div class="card grid-item">
+            <figure>
+              <img src="{{article.image_url}}" alt="{{article.title}}" />
+            </figure>
+            <div class="card-body">
+              <h2>
+                <a class="articleTitle text-uppercase" href="/article/{{article.id}}">{{article.title}}</a>
+              </h2>
+              <p>{{format_date article.date_created}}</p>
+              <p class="articleCreate text-right">Created by
+                {{article.user.username}}
+              </p>
+              <p>
+                {{article.description}}
+              </p>
+              <a href="/article/{{article.id}}" class="read-more">
+                Read more
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    {{else}}
+      <p class="text-center">You have no articles yet!</p>
+    {{/if}}
+  </div>
+</section>
+
+
+

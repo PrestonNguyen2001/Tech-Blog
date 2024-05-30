@@ -1,0 +1,73 @@
+<section class="section new-blog">
+  <h2 class="text-center text-3xl my-7 font-semibold">Create a New Blog:</h2>
+  <form id="new-blog-form" method="POST" action="/api/blogs">
+    <div class="input-box">
+      <div class="question">
+        <input type="text" id="blog-title" name="title" placeholder="Title" autocomplete="off" required>
+      </div>
+      <div class="file-upload-group">
+        <div class="file-input-wrapper">
+          <input type="file" id="blog-image" name="blog-image" accept="image/*">
+          <div id="upload-progress" class="hidden">
+            <div class="w-16 h-16">
+              <div id="progress-bar"></div>
+              <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            </div>
+            <div id="upload-error" class="text-red-500"></div>
+          </div>
+          <button type="button" id="upload-button" class="btn btn-primary upload-btn">Upload Image</button>
+        </div>
+        <input type="hidden" id="blog-image-url" name="image-url">
+      </div>
+      <div class="question">
+        <textarea id="blog-content" name="description" autocomplete="off" placeholder="Content"></textarea>
+      </div>
+    </div>
+    <div class="btn-box btns">
+      <button type="submit" id="submit-button" class="submit-button">Submit</button>
+    </div>
+  </form>
+</section>
+
+<script type="module" src="/js/dashboard.js"></script>
+
+
+{{#each blogs as |blog|}}
+
+  <section class="section featured-blogs" aria-label="Featured Blogs">
+  <div class="container">
+    {{#if blogs.length}}
+      <h3 class="page-title title-large">Recent Blogs</h3>
+      <div class="media-grid">
+        {{#each blogs as |blog|}}
+        <div class="column">
+          <div class="card grid-item">
+            <div class="card-body">
+              <h2>
+                <a class="blogTitle text-uppercase" href="/blog/{{blog.id}}">{{blog.title}}</a>
+              </h2>
+              <p>{{format_date blog.date_created}}</p>
+              <p class="blogCreate text-right">Created by {{blog.user.username}}</p>
+              <p>{{blog.description}}</p>
+              <div class="text-right">
+                <button class="btn btn-primary bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600" data-id="{{blog.id}}" data-type="blog">EDIT</button>
+                <button class="btn btn-danger bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600" data-id="{{blog.id}}" data-type="blog">DELETE</button>
+              </div>
+              <a href="/blog/{{blog.id}}" class="read-more">
+                Read more
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    {{else}}
+      <p class="text-center">You have no posts yet!</p>
+    {{/if}}
+  </div>
+</section>
+
+{{/each}}

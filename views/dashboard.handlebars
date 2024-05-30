@@ -1,0 +1,52 @@
+<section class="section dashboard">
+  <h1 class="welcome-text">Welcome, {{format_username username}}!</h1>
+
+  <div class="blog-container">
+    <h2 class="text-center text-3xl my-7 font-semibold">Create a New Blog:</h2>
+  
+  </div>
+
+  {{> blog-list blogs=blogs }}
+
+
+  {{> article-list articles=articles }}
+
+  <!-- Delete Modal Structure -->
+  <div id="delete-modal" class="modal">
+    <div class="modal-content">
+      <h3 class="modal-title text-title-medium" id="delete-title">
+        Are you sure you want to delete <strong id="delete-blog-title"></strong>?
+      </h3>
+      <div class="modal-footer">
+        <button class="btn text" id="cancel-delete-btn">
+          <span class="text-label-large">Cancel</span>
+        </button>
+        <button class="btn fill" id="confirm-delete-btn">
+          <span class="text-label-large">Delete</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Modal Structure -->
+  <div id="edit-modal" class="modal">
+  <div class="modal-content">
+    <button class="icon-btn large" aria-label="Close modal" id="close-edit-modal-btn">
+      <span class="material-symbols-rounded" aria-hidden="true">close</span>
+    </button>
+    <input type="text" id="edit-title" class="modal-title text-title-medium" placeholder="Title">
+    <textarea id="edit-content" class="modal-text text-body-large custom-scrollbar" placeholder="Content"></textarea>
+    <div class="modal-footer">
+      <button class="btn text" id="save-item-btn">
+        <span class="text-label-large">Save</span>
+      </button>
+    </div>
+  </div>
+  </div>
+
+
+  <!-- Scrim Element -->
+  <div id="scrim" class="scrim"></div>
+</section>
+
+<script type="module" src="/js/dashboard.js"></script>
